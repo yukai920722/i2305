@@ -1,0 +1,2 @@
+4100E104 王榆凱
+SELECT `ksu_std_department` "DEPT" , TRUNCATE(avg(`ksu_std_grade`),2)"avg", max(`ksu_std_age`) "max" FROM `ksu_std_table` GROUP by `ksu_std_department` HAVING max != 0

@@ -1,0 +1,4 @@
+4100E104 王榆凱
+SELECT `ksu_std_department` FROM ksu_std_table
+WHERE `ksu_std_department` NOT LIKE "%S%"
+GROUP BY `ksu_std_department`

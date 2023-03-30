@@ -1,0 +1,6 @@
+4100E104 王榆凱
+1. 
+SELECT ksu_std_name"學生姓名",ksu_std_age"年齡",ksu_std_grade"分數"
+from ksu_std_table
+WHERE ksu_std_grade > 40 and `ksu_std_department` ="cs"
+2.

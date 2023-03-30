@@ -1,0 +1,4 @@
+4100E104 王榆凱
+SELECT  `ksu_std_name` , `ksu_std_department` , `ksu_std_age` , `ksu_std_grade`
+FROM `ksu_std_table`
+WHERE `ksu_std_department` = "CS" AND `ksu_std_age`>= 23

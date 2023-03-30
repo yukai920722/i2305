@@ -1,0 +1,90 @@
+11001資料庫實務_四資工二Ｂ_1021
+-
+4100E104 王榆凱
+-
+SELECT A1.Region_Name REGION,SUM(A2.Sales)SALES
+FROM Geography A1,store_information_1 A2
+WHERE A1.Store_Name = A2.Store_Name
+GROUP BY A1.Region_Name;
+-
+SELECT A1.Region_Name REGION,SUM(A2.Sales)SALES,A1.store_name
+FROM geography A1,store_information_1 A2
+WHERE A1.store_Name = A2.store_name
+GROUP BY A1.Region_Name;
+-
+SELECT A1.Region_Name REGION, SUM(A2.Sales) SALES, A1.store_name 
+FROM geography A1, store_information_1 A2 
+WHERE A1.Store_Name = A2.store_Name 
+GROUP BY A1.Region_Name, A1.store_name
+-
+SELECT A1.Region_Name Region, SUM (A2.Sales) SALES, A1.store_name
+FROM geography A1, store_information_1 A2
+WHERE (A1.store_name = A2.Store_Name) AND
+      (A1.Region_Name like "%w%")
+GROUP BY A1.Region_Name, A1.store_name;
+-
+SELECT A1.Region_Name, A1.store_name, A0.Store_Name,A0.Sales
+FROM geography A1
+INNER JOIN store_information A0
+ON A1.store_name = A0.Store_Name
+-
+SELECT A1.Region_Name, A1.store_name, A3.store_name, A3.Sales
+FROM geography A1
+INNER JOIN store_information_1 A3
+ON A1.store_name = A3.Store_Name
+-
+SELECT A1.Region_Name Region, SUM(A2.Sales) SALES
+FROM geography A1
+INNER JOIN store_information_1 A2
+ON A1.store_name = A2.Store_Name
+GROUP BY A1.Region_Name;
+-
+SELECT A1.Region_Name Region,sum(A2.Sales) sales
+FROM geography A1
+INNER JOIN store_information_1 A2
+ON A1.store_name = A2.Store_Name
+GROUP BY A1.Region_Name;
+-
+SELECT A1.Region_Name, A1.store_name, A5.store_name, A5.Sales
+FROM geography A1
+LEFT JOIN store_information A5
+ON A1.store_name = A5.Store_Name
+-
+SELECT A1.Region_Name, A1.store_name, A5.store_name, A5.Sales
+FROM geography A1
+RIGHT JOIN store_information A5
+ON A1.store_name = A5.Store_Name
+-
+SELECT A1.Region_Name, A1.store_name, A5.store_name, A5.Sales
+FROM geography A1
+LEFT JOIN store_information A5
+ON A1.store_name = A5.Store_Name
+UNION
+SELECT A1.Region_Name, A1.store_name, A5.store_name, A5.Sales
+FROM geography A1
+RIGHT JOIN store_information A5
+ON A1.store_name = A5.Store_Name
+-
+SELECT concat(Region_Name, store_name)
+FROM geography
+WHERE store_name = 'Boston';
+-
+SELECT substr(store_name, 3)
+FROM geography
+WHERE store_name = 'Los Angeles';
+-
+SELECT substr(store_name,2,4)
+FROM geography
+WHERE store_name = 'San Diego';
+-
+SELECT trim(' sample ');
+-
+SELECT length(store_name)
+FROM geography
+WHERE store_name = 'Los Angeles';
+-
+SELECT Region_Name, length(Region_Name)
+FROM geography;
+-
+SELECT REPLACE(Region_Name,'ast','astern')
+FROM geography;

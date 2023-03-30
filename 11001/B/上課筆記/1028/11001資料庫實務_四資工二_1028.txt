@@ -1,0 +1,82 @@
+11001資料庫實務_四資工二Ｂ_1028
+-
+4100E104 王榆凱
+-
+【CREATE TABLE】
+CREATE TABLE customer01
+(First_Name char(50),
+Last_Name char(50),
+Adress char(50),
+Country char(25),
+Birth_Date datetime
+);
+-
+【Constraint – unique  The SID column is setup with the UNIQUE constraint.1】
+CREATE TABLE customer_1
+(sid integer UNIQUE KEY,
+ Last_Name varchar(30),
+ First_Name varchar(30));
+-
+【Constraint – unique  The SID column is setup with the UNIQUE constraint.2】
+CREATE TABLE customer_4
+(SID integer UNIQUE,
+ Last_Name varchar(30),
+ First_Name varchar(30));
+-
+【Constraint – unique  The value of SID column needs to be checked..】
+CREATE TABLE customer_2
+(SID integer CHECK (SID > 0),
+ Last_Name varchar(30),
+ First_Name varchar(30));
+-
+【Change a column name】
+ALTER TABLE customer CHANGE Addr Addr_new varchar(30);
+-
+【Modify a column’s structure】
+ALTER TABLE customer modify addr_new varchar(30);
+-
+【Drop an existing column when no data】
+ALTER TABLE customer DROP Gender;
+-
+【Add a new column】
+ALTER TABLE customer ADD Gender char(1);
+-
+【INSERT】
+INSERT INTO store_information (store_name, sales, Txn_Date)
+VALUES ('Los Angeles',900,'1999-01-10');
+-
+【Exercise: more than one rows inserted】
+INSERT INTO store_information_1
+(store_Name, Sales, Txn_Date)
+VALUES ('Lowe11',800, '1998-01-10'),
+('Lowe11',700,'1998-01-11');
+-
+【INSERT Multiple Rows】
+INSERT INTO store_information (store_name, sales, Txn_Date)
+SELECT store_name, sales, Txn_Date
+FROM store_information_1
+WHERE Year(Txn_Date) = 1998;
+-
+【UPDATE】
+UPDATE store_information
+SET salas = 555,
+WHERE store_name = 'Los Angeles'
+-
+【Exercise】
+UPDATE store_information
+SET salas = '777',
+    store_name = 'SunnyVale'
+WHERE store_name = 'Los Angeles'
+-
+【DELETE】
+DELETE FROM Store_Information
+WHERE sales=777;
+-
+【備註】
+use資料庫
+-
+【Export the store procedure】
+SELECT * FROM ksu_std_table
+-
+【Creation with parameters】
+CALL `test`();

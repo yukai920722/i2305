@@ -1,0 +1,101 @@
+11001資料庫實務_四資工二Ｂ_1007
+-
+4100E104 王榆凱
+-
+刪除一到三項(sql)
+DELETE FROM `test_table01`
+WHERE 1 limit 3
+-
+大於1000元
+SELECT Store_Name
+FROM store_information
+WHERE Sales > 1000;
+-
+小於1000元
+SELECT Store_Name
+FROM store_information
+WHERE Sales < 1000;
+-
+copy複製
+create table store_information_1
+as SELECT * from store_information;
+-
+update data
+UPDATE store_information
+SET Store_Name = "San Francisco"
+WHERE Sales = 300;
+-
+SQL AND OR
+SELECT Store_Name
+FROM store_information
+WHERE Sales > 1000
+OR (Sales < 500 AND Sales > 275);
+-
+SQL AND
+SELECT Store_Name
+FROM store_information
+WHERE Sales > 1000;
+-
+SQL IN
+SELECT *
+FROM store_information
+WHERE Store_Name IN ('LOS Angeles','San Diego');
+-
+SQL Between
+SELECT * FROM store_information
+WHERE Txn_Date
+BETWEEN '1999-01-06'
+and '1999-01-10';
+-
+SQL LINK
+SELECT *
+FROM store_information
+WHERE Store_Name LIKE '%AN%';
+-
+SQL ORDERBY
+SELECT Store_Name,Sales,Txn_Date
+FROM store_information
+ORDER BY Sales DESC;
+-
+SQL AVG
+SELECT AVG(Sales)
+FROM Store_Information;
+-
+SQL AVG(去零)
+SELECT Format (AVG(Sales),1)
+FROM store_information_1;
+-
+SQL COUNT(失敗)
+SELECT COUNT(Store_Name)
+FROM store_information_1
+WHERE Store_Name is not null;
+-
+SQL COUNT
+SELECT COUNT(Store_Name)
+FROM store_information_1;
+-
+SQL COUNT
+SELECT COUNT(*)
+FROM store_information_1;
+-
+SQL MAX
+SELECT MAX(sales)
+FROM store_information;
+-
+SQL MIN
+SELECT MIN(sales)
+FROM store_information;
+-
+SQL SUM
+SELECT SUM(sales)
+FROM store_information;
+-
+SQL MAX,MIN,SUM,AVG
+SELECT MAX(sales)最大,MIN(sales)最小,SUM(sales)總和,AVG(Sales)平均
+FROM store_information;
+-
+筆記:
+1.ASC:從小到大
+2.DESC:從大到小
+3.avg平均
+4.SUM總和
