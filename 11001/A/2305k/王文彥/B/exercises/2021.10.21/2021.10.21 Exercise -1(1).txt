@@ -1,0 +1,5 @@
+4100E104 王榆凱
+SELECT ksu_std_department dept, count(ksu_std_name)number 
+from ksu_std_table 
+GROUP BY ksu_std_department 
+HAVING COUNT(ksu_std_name) > 1 and ksu_std_department !=' ';

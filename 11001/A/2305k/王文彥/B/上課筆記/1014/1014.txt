@@ -1,0 +1,57 @@
+update data
+UPDATE store_information
+SET Store_Name = "San Francisco"
+WHERE Sales = 300;
+-
+copy複製
+create table store_information_1
+as SELECT * from store_information;
+-
+SQL GROUP BY -1 
+SELECT Store_Name,SUM(Sales)
+FROM store_information_1
+GROUP BY Store_Name;
+-
+SQL GROUP BY -1 (中文-1)
+SELECT Store_Name"商店",SUM(Sales)"總和"
+FROM store_information_1
+GROUP BY Store_Name;
+-
+SQL GROUP BY -1 (中文-2)
+SELECT Store_Name "商店",
+SUM(Sales) "總和",
+Sales"金額"
+FROM store_information_1
+GROUP BY Store_Name;
+-
+SQL GROUP BY -2
+SELECT Store_Name , SUM(Sales),Sales
+FROM store_information_1
+GROUP BY Store_Name;
+-
+SQL HAVING
+SELECT Store_Name,SUM(Sales)
+FROM store_information_1
+GROUP BY Store_Name
+HAVING SUM(Sales)>1500;
+-
+Exercise - 1
+SELECT `ksu_std_department` "DEPT" , TRUNCATE(avg(`ksu_std_grade`),2)"avg", max(`ksu_std_age`) "max" FROM `ksu_std_table` GROUP by `ksu_std_department` HAVING max != 0
+-
+Exercise - 1答案
+SELECT ksu_std_department as Dept ,
+Format(avg(ksu_std_grade),2) as averag,
+MAX(ksu_std_age) MaxAge
+FROM ksu_std_table
+GROUP BY ksu_std_department
+HAVING ksu_std_department !='';
+-
+Exercise - 2
+SELECT  `ksu_std_name` , `ksu_std_department` , `ksu_std_age` , `ksu_std_grade`
+FROM `ksu_std_table`
+WHERE `ksu_std_department` = "CS" AND `ksu_std_age`>=23
+-
+Exercise - 3
+SELECT `ksu_std_department` FROM ksu_std_table
+WHERE `ksu_std_department` NOT LIKE "%S%"
+GROUP BY `ksu_std_department`
