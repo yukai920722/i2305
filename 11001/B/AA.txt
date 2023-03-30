@@ -1,0 +1,37 @@
+11001資料庫實務_四資工二B_額外加分
+-
+4100E104 王榆凱
+-
+1.請使用一 SQL 述敘， 選取 student_detail 學生資料，符合其 std_grade 成績不小於 60, 且 系別為 IE。顯示如下:
+SELECT *
+from student_detail
+WHERE std_grade >= 60 and
+      dept_id = "IE"
+-
+2.請使用一 SQL 述敘， 選取 student_detail 學生資料，延續題 1，尋找題 1中學生姓名中, e 的字元, 不在一開始與結尾的位置。顯示如下:
+[方式一]
+SELECT *
+from student_detail
+WHERE std_grade >= 60 and
+      dept_id = "IE" AND
+      std_name NOT LIKE '%e' and
+      std_name NOT LIKE 'e%' 
+[方式二]
+SELECT *
+from student_detail
+WHERE std_grade >= 60 and
+      dept_id = "IE" AND
+      std_name LIKE '%_e_%'
+-
+3.請使用一 SQL 述敘， 選取 student_detail 學生資料，以 dept_id 與std_advisor 兩者代號相同者，來作整體運算，並顯示結果排列如下:
+SELECT *
+from student_detail
+WHERE dept_id = std_advisor
+
+-
+4.請使用一 SQL 述敘，延續題 3 選取 student_detail 學生資料，選取中std_address 不可為空，且 std_grade 不可低於 60 分，且平均成績不小於 70，所得資料，排列如下.
+SELECT *
+from student_detail
+WHERE dept_id = std_advisor and
+std_address != null and
+std_grade > 60;
